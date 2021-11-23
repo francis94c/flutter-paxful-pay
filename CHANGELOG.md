@@ -1,3 +1,5 @@
 ## 0.0.1
 
-* TODO: Describe initial release.
+- Pay with FIAT and BTC.
+- Customizable Payment Page Title and Title Background Color.
+- Get Payment URL.
