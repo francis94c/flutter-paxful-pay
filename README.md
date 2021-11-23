@@ -7,11 +7,22 @@ This package helps you generate PaxFul Pay URLs with parameters, and additionall
 ## Features
 
 - Generate PAxFul Pay URLs with parameters, See [PaxFulPay Documentation](https://developers.paxful.com/documentation/paxful-pay)
+- Opens a WebView to the generated URL for payment
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Add the below to your `pubspec.yaml` file.
+
+```yaml
+dependencies:
+  flutter_paxful_pay: ^0.0.1
+```
+
+and import with 
+
+```dart
+import 'package:flutter_paxful_pay/flutter_paxful_pay.dart';
+```
 
 ## Usage
 
