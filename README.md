@@ -15,7 +15,7 @@ Add the below to your `pubspec.yaml` file.
 
 ```yaml
 dependencies:
-  flutter_paxful_pay: ^0.0.1
+  flutter_paxful_pay: ^0.0.3
 ```
 
 and import with
@@ -44,6 +44,10 @@ String paymentURL = FlutterPAXFulPay.openWebView(
 ```
 
 **NB:** You can prompt to pay BTC or FIAT. For BTC, the example above will suffice. For FIAT, you will need to omit the `amount` argument and provide the `fiatAmount` and `fiatCurrency` arguments instead. If you provided `amount`, `fiatAmount`, and `fiatCurrency` all together, `amount` will be ignored.
+
+Your app will navigate to a new page/route with a webview as shown below.
+
+![PAXFul Pay](https://github.com/francis94c/flutter_paxful_pay/blob/master/assets/images/paxful-pay.jpg?raw=true)
 
 To generate **BTC** payment URLs, use the following:
 
