@@ -1,6 +1,9 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_paxful_pay/screens/payment_screen.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:flutter_paxful_pay/flutter_paxful_pay.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 void main() {
   test('URL generation conforms to standards', () {
@@ -81,5 +84,60 @@ void main() {
                 "Either amount or fiatAmount and fiatCurrency must be provided"),
       ),
     );
+  });
+
+  testWidgets('Test Payment Screen', (WidgetTester tester) async {
+    await tester.pumpWidget(
+      MediaQuery(
+        data: const MediaQueryData(),
+        child: MaterialApp(
+          home: PayemntScreen(
+            url: FlutterPAXFulPay.generatePaymentURL(
+              apiKey: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+              merchantId: "ABC",
+              to: "btc_address",
+              secret: 'secret',
+              trackId: 'uuid',
+              fiatAmount: 50,
+              fiatCurrency: "USD",
+            ),
+          ),
+        ),
+      ),
+    );
+
+    Finder webViewFiner = find.byType(WebView);
+    Finder textFinder = find.text("PAXFul Pay");
+
+    expect(webViewFiner, findsOneWidget);
+    expect(textFinder, findsOneWidget);
+  });
+
+  testWidgets('Test Payment Screen Custom Title', (WidgetTester tester) async {
+    await tester.pumpWidget(
+      MediaQuery(
+        data: const MediaQueryData(),
+        child: MaterialApp(
+          home: PayemntScreen(
+            url: FlutterPAXFulPay.generatePaymentURL(
+              apiKey: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+              merchantId: "ABC",
+              to: "btc_address",
+              secret: 'secret',
+              trackId: 'uuid',
+              fiatAmount: 50,
+              fiatCurrency: "USD",
+            ),
+            title: "Custom Title",
+          ),
+        ),
+      ),
+    );
+
+    Finder webViewFiner = find.byType(WebView);
+    Finder textFinder = find.text("Custom Title - PAXFul Pay");
+
+    expect(webViewFiner, findsOneWidget);
+    expect(textFinder, findsOneWidget);
   });
 }
