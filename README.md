@@ -6,7 +6,7 @@ This package helps you generate PaxFul Pay URLs with parameters, and additionall
 
 ## Features
 
-- Generate PAxFul Pay URLs with parameters, See [PaxFulPay Documentation](https://developers.paxful.com/documentation/paxful-pay)
+- Generate PAXFul Pay URLs with parameters, See [PaxFulPay Documentation](https://developers.paxful.com/documentation/paxful-pay)
 - Opens a WebView to the generated URL for payment
 
 ## Getting started
