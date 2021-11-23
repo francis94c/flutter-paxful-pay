@@ -1,6 +1,6 @@
 # flutter_paxful_pay
 
-[![Build](https://github.com/francis94c/should_review/actions/workflows/main.yml/badge.svg)](https://github.com/francis94c/should_review/actions/workflows/main.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build](https://github.com/francis94c/flutter_paxful_pay/actions/workflows/main.yml/badge.svg)](https://github.com/francis94c/should_review/actions/workflows/main.yml) [![codecov](https://codecov.io/gh/francis94c/flutter_paxful_pay/branch/master/graph/badge.svg?token=KCPSZJHEO9)](https://codecov.io/gh/francis94c/should_review) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 This package helps you generate PaxFul Pay URLs with parameters, and additionally opens a WebView to the generated URL for payment..
 
@@ -79,6 +79,12 @@ String paymentURL = FlutterPAXFulPay.generatePaymentURL(
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+For a practical example, see the package example section.
+
+## Contributing
+
+Pull requests are welcome.
+
+Send pull requests to the `develop` branch.
+
+For major changes, please open an issue first to discuss what you would like to change.
