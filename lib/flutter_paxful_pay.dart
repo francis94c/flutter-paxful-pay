@@ -35,7 +35,7 @@ class FlutterPAXFulPay {
             to: to,
             secret: secret,
             trackId: trackId,
-            saveAdress: saveAdress,
+            saveAddress: saveAdress,
             amount: amount,
             fiatAmount: fiatAmount,
             fiatCurrency: fiatCurrency,
@@ -54,7 +54,7 @@ class FlutterPAXFulPay {
     required String to,
     required String secret,
     required String trackId,
-    bool saveAdress = true,
+    bool saveAddress = true,
     double? amount,
     double? fiatAmount,
     String? fiatCurrency,
@@ -77,7 +77,7 @@ class FlutterPAXFulPay {
       params += "&fiat_currency=$fiatCurrency";
     }
     params += "&track_id=$trackId";
-    if (saveAdress) params += "&saveaddress=1";
+    if (saveAddress) params += "&saveaddress=1";
 
     // Generate api seal according to docs.
     Hmac hmacSha256 = Hmac(sha256, utf8.encode(secret));
