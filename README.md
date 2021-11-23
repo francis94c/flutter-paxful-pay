@@ -47,7 +47,7 @@ String paymentURL = FlutterPAXFulPay.openWebView(
 
 Your app will navigate to a new page/route with a webview as shown below.
 
-![PAXFul Pay](https://github.com/francis94c/flutter_paxful_pay/blob/master/assets/images/paxful-pay.jpg?raw=true)
+![PAXFul Pay](https://github.com/francis94c/flutter_paxful_pay/blob/master/assets/images/paxful-pay.png?raw=true)
 
 To generate **BTC** payment URLs, use the following:
 
