@@ -11,33 +11,55 @@ class FlutterPAXFulPay {
   static const String _baseUrl = "https://paxful.com/wallet/pay";
 
   /// Open the PAXFullPay payment page.
-  void openWebView(
-      {required BuildContext context,
-      required String apiKey,
-      required String merchantId,
-      required String to,
-      required double amount,
-      required String secret,
-      bool saveAdress = true,
-      String? trackId}) {
+  static void openWebView({
+    required BuildContext context,
+    required String apiKey,
+    required String merchantId,
+    required String to,
+    required String secret,
+    required String trackId,
+    bool saveAdress = true,
+    double? amount,
+    double? fiatAmount,
+    String? fiatCurrency,
+    String? title,
+    Color? titleBackgroundColor,
+  }) {
+    // Validate
+    if (amount == null && (fiatAmount == null || fiatCurrency == null)) {
+      throw ArgumentError(
+          "Either amount or fiatAmount and fiatCurrency must be provided");
+    }
+
     // Build URL query parameterss
     String params = "apikey=$apiKey";
     params += "&merchant=$merchantId";
     params += "&nonce=" + DateTime.now().millisecondsSinceEpoch.toString();
     params += "&to=$to";
-    params += "&amount=$amount";
-    if (trackId != null) params += "&track_id=$trackId";
+    if (amount != null) {
+      params += "&amount=$amount";
+    } else {
+      params += "&fiat_amount=$fiatAmount";
+      params += "&fiat_currency=$fiatCurrency";
+    }
+    params += "&track_id=$trackId";
 
     // Generate api seal according to docs.
     Hmac hmacSha256 = Hmac(sha256, utf8.encode(secret));
     String apiSeal = hmacSha256.convert(utf8.encode(params)).toString();
 
     // Sign params with api seal.
-    params += "&api_seal=$apiSeal";
+    params += "&apiseal=$apiSeal";
 
     // Open payment page.
-    Navigator.of(context).push(MaterialPageRoute(
-        builder: (BuildContext context) =>
-            PayemntScreen(url: _baseUrl + "?" + params)));
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (BuildContext context) => PayemntScreen(
+          url: _baseUrl + "?" + params,
+          title: title,
+          titleBackgroundColor: titleBackgroundColor,
+        ),
+      ),
+    );
   }
 }
