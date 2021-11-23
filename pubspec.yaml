@@ -1,7 +1,7 @@
 name: flutter_paxful_pay
-description: A new Flutter package project.
+description: A package for the PAXFul-Pay API.
 version: 0.0.1
-homepage:
+repository: https://github.com/francis94c/flutter_paxful_pay
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
