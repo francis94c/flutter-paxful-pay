@@ -10,7 +10,7 @@ import 'package:flutter_paxful_pay/screens/payment_screen.dart';
 class FlutterPAXFulPay {
   static const String _baseUrl = "https://paxful.com/wallet/pay";
 
-  /// Open the PAXFullPay payment page.
+  /// Genrate payment URL and open the PAXFullPay payment page.
   static void openWebView({
     required BuildContext context,
     required String apiKey,
@@ -24,6 +24,40 @@ class FlutterPAXFulPay {
     String? fiatCurrency,
     String? title,
     Color? titleBackgroundColor,
+  }) {
+    // Open payment page.
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (BuildContext context) => PayemntScreen(
+          url: generatePaymentURL(
+            apiKey: apiKey,
+            merchantId: merchantId,
+            to: to,
+            secret: secret,
+            trackId: trackId,
+            saveAdress: saveAdress,
+            amount: amount,
+            fiatAmount: fiatAmount,
+            fiatCurrency: fiatCurrency,
+          ),
+          title: title,
+          titleBackgroundColor: titleBackgroundColor,
+        ),
+      ),
+    );
+  }
+
+  /// Generate Payment URL.
+  static String generatePaymentURL({
+    required String apiKey,
+    required String merchantId,
+    required String to,
+    required String secret,
+    required String trackId,
+    bool saveAdress = true,
+    double? amount,
+    double? fiatAmount,
+    String? fiatCurrency,
   }) {
     // Validate
     if (amount == null && (fiatAmount == null || fiatCurrency == null)) {
@@ -43,6 +77,7 @@ class FlutterPAXFulPay {
       params += "&fiat_currency=$fiatCurrency";
     }
     params += "&track_id=$trackId";
+    if (saveAdress) params += "&saveaddress=1";
 
     // Generate api seal according to docs.
     Hmac hmacSha256 = Hmac(sha256, utf8.encode(secret));
@@ -51,15 +86,6 @@ class FlutterPAXFulPay {
     // Sign params with api seal.
     params += "&apiseal=$apiSeal";
 
-    // Open payment page.
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (BuildContext context) => PayemntScreen(
-          url: _baseUrl + "?" + params,
-          title: title,
-          titleBackgroundColor: titleBackgroundColor,
-        ),
-      ),
-    );
+    return _baseUrl + "?" + params;
   }
 }
