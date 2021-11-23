@@ -1,4 +1,4 @@
-#flutter_paxful_pay
+# flutter_paxful_pay
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
