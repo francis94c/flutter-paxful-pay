@@ -32,7 +32,7 @@ To open the payment web view directly with parameters, use the following:
 import 'package:flutter_paxful_pay/flutter_paxful_pay.dart';
 
 String paymentURL = FlutterPAXFulPay.openWebView(
-    context: context, // Build Context
+    context: context, // BuildContext
     apiKey: "ABCDEFGHIJKLMNOPQRSTUVWXYZ", // Change.
     merchantId: "abc", // Change.
     to: "BTC_ADDRESS", // Change.
