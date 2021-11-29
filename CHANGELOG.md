@@ -7,3 +7,7 @@
 ## 0.0.2
 
 - README Fix.
+
+## 0.0.3
+
+- Update package description.
