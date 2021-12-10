@@ -11,3 +11,7 @@
 ## 0.0.3
 
 - Update package description.
+
+## 0.0.4
+
+- Expose onPageFinished event for the WebView.
