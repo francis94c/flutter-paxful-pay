@@ -6,9 +6,14 @@ class PayemntScreen extends StatelessWidget {
   final String? title;
   final String url;
   final Color? titleBackgroundColor;
+  final void Function(String)? onPageFinished;
 
   const PayemntScreen(
-      {Key? key, this.title, required this.url, this.titleBackgroundColor})
+      {Key? key,
+      this.title,
+      required this.url,
+      this.titleBackgroundColor,
+      this.onPageFinished})
       : super(key: key);
 
   @override
@@ -21,6 +26,7 @@ class PayemntScreen extends StatelessWidget {
       body: WebView(
         initialUrl: url,
         javascriptMode: JavascriptMode.unrestricted,
+        onPageFinished: onPageFinished,
       ),
     );
   }
