@@ -11,6 +11,17 @@ class FlutterPAXFulPay {
   static const String _baseUrl = "https://paxful.com/wallet/pay";
 
   /// Genrate payment URL and open the PAXFullPay payment page.
+  /// [context] BuildContext.
+  /// [apiKey] Your PAXFul API key.
+  /// [merchantId] Your PAXFul merchant ID.
+  /// [to] The PAXFullPay wallet address to send the payment to.
+  /// [secret] Your PAXFul API secret.
+  /// [trackId] Your randomly generated string to track the payment from paxful.
+  /// [saveAddress] Save the address to PAXFullPay wallet in case a retry is needed.
+  /// [amount] The amount to send in BTC.
+  /// [fiatAmount] The amount to send in FIAT currency. Provide this only of
+  /// amount is not provided. If you supply this argument, ypou also need to supply
+  /// the fiatCurrency argument.
   static void openWebView({
     required BuildContext context,
     required String apiKey,
@@ -23,7 +34,12 @@ class FlutterPAXFulPay {
     double? fiatAmount,
     String? fiatCurrency,
     String? title,
-    Color? titleBackgroundColor,
+    @Deprecated("Use appBarBackgroundColor") Color? titleBackgroundColor,
+    Color? appBarBackgroundColor,
+    Color? appBarTextColor,
+    void Function(String)? onPageFinished,
+    void Function(int)? onProgress,
+    double? appBarElevation,
   }) {
     // Open payment page.
     Navigator.of(context).push(
@@ -41,7 +57,11 @@ class FlutterPAXFulPay {
             fiatCurrency: fiatCurrency,
           ),
           title: title,
-          titleBackgroundColor: titleBackgroundColor,
+          appBarBackgroundColor: appBarBackgroundColor ?? titleBackgroundColor,
+          onPageFinished: onPageFinished,
+          appBarElevation: appBarElevation,
+          appBarTextColor: appBarTextColor,
+          onProgress: onProgress,
         ),
       ),
     );
