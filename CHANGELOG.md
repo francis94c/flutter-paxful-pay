@@ -15,3 +15,10 @@
 ## 0.0.5
 
 - Expose onPageFinished event for the WebView.
+
+## 1.0.0-beta.1
+
+- Fix issues with the previous release.
+- Deprecated some function parameters.
+- Customizable title text color.
+- Exposed WebView onProgress callback.

@@ -15,7 +15,7 @@ Add the below to your `pubspec.yaml` file.
 
 ```yaml
 dependencies:
-  flutter_paxful_pay: ^0.0.5
+  flutter_paxful_pay: ^1.0.0-beta.1
 ```
 
 and import with
