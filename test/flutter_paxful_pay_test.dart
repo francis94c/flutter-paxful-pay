@@ -88,7 +88,7 @@ void main() {
   });
 
   test('Generation of tracking id', () {
-    expect(FlutterPAXFulPay.genererateTrackId(), isNotEmpty);
+    expect(FlutterPAXFulPay.generateTrackId(), isNotEmpty);
   });
 
   testWidgets('Test Payment Screen', (WidgetTester tester) async {

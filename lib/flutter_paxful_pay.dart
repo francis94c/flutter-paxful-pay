@@ -31,7 +31,7 @@ class FlutterPAXFulPay {
     required String trackId,
     bool saveAdress = false,
     double? amount,
-    double? fiatAmount,
+    int? fiatAmount,
     String? fiatCurrency,
     String? title,
     @Deprecated("Use appBarBackgroundColor") Color? titleBackgroundColor,
@@ -76,7 +76,7 @@ class FlutterPAXFulPay {
     required String trackId,
     bool saveAddress = false,
     double? amount,
-    double? fiatAmount,
+    int? fiatAmount,
     String? fiatCurrency,
   }) {
     // Validate
@@ -111,7 +111,7 @@ class FlutterPAXFulPay {
 
   /// Generates a string you can use as a tracking ID for your payment.
   /// This essentially a sha1 hash of the current timestamp.
-  static String genererateTrackId() => sha1
+  static String generateTrackId() => sha1
       .convert(utf8.encode(DateTime.now().millisecondsSinceEpoch.toString()))
       .toString();
 }
