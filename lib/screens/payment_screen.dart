@@ -26,19 +26,23 @@ class PayemntScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title == null ? "PAXFul Pay" : "$title - PAXFul Pay"),
-        backgroundColor: appBarBackgroundColor ?? titleBackgroundColor,
-        elevation: appBarElevation,
-        foregroundColor: appBarTextColor,
-      ),
-      body: WebView(
-        initialUrl: url,
-        javascriptMode: JavascriptMode.unrestricted,
-        onPageFinished: onPageFinished,
-        onProgress: (int progress) => onProgress?.call(progress),
-      ),
+    return Column(
+      children: [
+        AppBar(
+          title: Text(title == null ? "PAXFul Pay" : "$title - PAXFul Pay"),
+          backgroundColor: appBarBackgroundColor ?? titleBackgroundColor,
+          elevation: appBarElevation,
+          foregroundColor: appBarTextColor,
+        ),
+        Expanded(
+          child: WebView(
+            initialUrl: url,
+            javascriptMode: JavascriptMode.unrestricted,
+            onPageFinished: onPageFinished,
+            onProgress: (int progress) => onProgress?.call(progress),
+          ),
+        ),
+      ],
     );
   }
 }
