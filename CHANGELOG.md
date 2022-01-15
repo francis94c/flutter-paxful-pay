@@ -28,3 +28,4 @@
 - Fix issues with keyboard interacting with the WebView.
 - Provided function for generating tracking ID.
 - saveAddress parameter is now false by default.
+- Major Bug Fix with the FIAT parameters.
