@@ -22,3 +22,9 @@
 - Deprecated some function parameters.
 - Customizable title text color.
 - Exposed WebView onProgress callback.
+
+## 1.0.0-beta.2
+
+- Fix issues with keyboard interacting with the WebView.
+- Provided function for generating tracking ID.
+- saveAddress parameter is now false by default.

@@ -15,7 +15,7 @@ Add the below to your `pubspec.yaml` file.
 
 ```yaml
 dependencies:
-  flutter_paxful_pay: ^1.0.0-beta.1
+  flutter_paxful_pay: ^1.0.0-beta.2
 ```
 
 and import with
@@ -38,7 +38,7 @@ String paymentURL = FlutterPAXFulPay.openWebView(
     to: "BTC_ADDRESS", // Change.
     secret: "secret", // Change.
     trackId: "uuid", // Unique ID for all transactions... Used for tracking on your backend...
-    saveAddress = true,
+    saveAddress = false,
     amount: 0.005, // BTC amount.
 );
 ```
@@ -60,7 +60,7 @@ String paymentURL = FlutterPAXFulPay.generatePaymentURL(
     to: "BTC_ADDRESS", // Change.
     secret: "secret", // Change.
     trackId: "uuid", // Unique ID for all transactions... Used for tracking on your backend...
-    saveAddress = true,
+    saveAddress = false,
     amount: 0.005, // BTC amount. Min is 0.0004 from PaxFul.
 );
 ```
@@ -76,11 +76,19 @@ String paymentURL = FlutterPAXFulPay.generatePaymentURL(
     to: "BTC_ADDRESS", // Change.
     secret: "secret", // Change.
     trackId: "uuid", // Unique ID for all transactions... Used for tracking on your backend...
-    saveAddress = true,
+    saveAddress = false,
     fiatAmount: 70, // FIAT amount.
     fiatCurrency: "USD", // FIAT currency.
 );
 ```
+
+## Issues
+
+You might experience certain issues with the webview as it's platform view, while interacting with input fields (.e.g. alphabet keyboards showing up when you need numbers only). Some steps have been taking within this package but there are a couple things you can do to fix these issues.
+
+### 1. Enable Material Components.
+
+The webview is in hybrid mode, and requires material components to improve the experience. Follow the guide at [Enabling Material Components](https://docs.flutter.dev/deployment/android#enabling-material-components).
 
 ## Additional information
 

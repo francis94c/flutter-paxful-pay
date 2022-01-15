@@ -1,6 +1,6 @@
 name: flutter_paxful_pay
 description: A package for the generating PAXFul-Pay payment URLs and prompting users for payment.
-version: 1.0.0-beta.1
+version: 1.0.0-beta.2
 repository: https://github.com/francis94c/flutter_paxful_pay
 
 environment:
