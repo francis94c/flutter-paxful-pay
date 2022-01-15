@@ -40,6 +40,7 @@ void main() {
       trackId: 'uuid',
       fiatAmount: 50,
       fiatCurrency: "USD",
+      saveAddress: true,
     );
 
     expect(url.contains("https://paxful.com/wallet/pay?"), true);
@@ -84,6 +85,10 @@ void main() {
                 "Either amount or fiatAmount and fiatCurrency must be provided"),
       ),
     );
+  });
+
+  test('Generation of tracking id', () {
+    expect(FlutterPAXFulPay.genererateTrackId(), isNotEmpty);
   });
 
   testWidgets('Test Payment Screen', (WidgetTester tester) async {
