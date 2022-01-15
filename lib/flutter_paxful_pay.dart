@@ -108,4 +108,10 @@ class FlutterPAXFulPay {
 
     return _baseUrl + "?" + params;
   }
+
+  /// Generates a string you can use as a tracking ID for your payment.
+  /// This essentially a sha1 hash of the current timestamp.
+  static String genererateTrackId() => sha1
+      .convert(utf8.encode(DateTime.now().millisecondsSinceEpoch.toString()))
+      .toString();
 }
